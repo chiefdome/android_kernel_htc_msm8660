@@ -158,19 +158,11 @@ static void holiday_config_bt_on(void)
 	/* set bt on configuration*/
 	config_bt_table(holiday_bt_on_table,
 				ARRAY_SIZE(holiday_bt_on_table));
-	mdelay(2);
-
-	/* BT_RESET_N */
-	gpio_set_value(HOLIDAY_GPIO_BT_RESET_N, 0);
-	mdelay(1);
-
-	/* BT_SHUTDOWN_N */
-	gpio_set_value(HOLIDAY_GPIO_BT_SHUTDOWN_N, 0);
 	mdelay(5);
 
 	/* BT_SHUTDOWN_N */
 	gpio_set_value(HOLIDAY_GPIO_BT_SHUTDOWN_N, 1);
-	mdelay(1);
+	mdelay(2);
 
 	/* BT_RESET_N */
 	gpio_set_value(HOLIDAY_GPIO_BT_RESET_N, 1);
@@ -294,9 +286,6 @@ static struct platform_driver holiday_rfkill_driver = {
 
 static int __init holiday_rfkill_init(void)
 {
-	if (!machine_is_holiday())
-		return 0;
-
 	return platform_driver_register(&holiday_rfkill_driver);
 }
 
