@@ -2305,7 +2305,7 @@ static void __init msm8x60_init_dsps(void)
 
 //#define MSM_ION_CAMERA_BASE   (0x40E00000)        
 #define MSM_ION_WB_BASE       (0x46400000)
-#define MSM_ION_AUDIO_BASE    (MSM_PMEM_ADSP_BASE - MSM_PMEM_AUDIO_SIZE)
+//#define MSM_ION_AUDIO_BASE    (MSM_PMEM_ADSP_BASE - MSM_PMEM_AUDIO_SIZE)
 
 #else 
 #define MSM_ION_HEAP_NUM      1
